@@ -1,0 +1,4 @@
+test/java/com/nimish/sahaj/flightoffer/model/SuccessfulPassengerTest.class
+test/java/com/nimish/sahaj/flightoffer/model/InputFileTest.class
+test/java/com/nimish/sahaj/flightoffer/model/FailedPassengerTest.class
+test/java/com/nimish/sahaj/flightoffer/model/ValidationTest.class
