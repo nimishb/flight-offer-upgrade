@@ -12,6 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import main.java.com.nimish.sahaj.flightoffer.constant.Constant;
 import main.java.com.nimish.sahaj.flightoffer.constant.DateFormat;
+import main.java.com.nimish.sahaj.flightoffer.exception.InvalidDataException;
 import main.java.com.nimish.sahaj.flightoffer.model.FlightPassenger;
 
 public class WorkbookUtil {
@@ -114,7 +115,7 @@ public class WorkbookUtil {
 			}
 			return passengers;
 		} catch (Exception e) {
-			return null;
+			throw new InvalidDataException("Invalid Data within sheet");
 		}
 	}
 	

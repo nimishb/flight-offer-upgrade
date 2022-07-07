@@ -1,8 +1,6 @@
 package main.java.com.nimish.sahaj.flightoffer.service.impl;
 
 import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import main.java.com.nimish.sahaj.flightoffer.constant.Constant;
-import main.java.com.nimish.sahaj.flightoffer.exception.InvalidDataException;
 import main.java.com.nimish.sahaj.flightoffer.model.ErrorPassenger;
 import main.java.com.nimish.sahaj.flightoffer.model.FlightPassenger;
 import main.java.com.nimish.sahaj.flightoffer.model.SuccessfulPassenger;
@@ -34,24 +31,15 @@ public class FlightOffersService implements OffersService {
 	@Override
 	public List<FlightPassenger> processRecordsFromFile() {
 		
-		try {
-			
-			logger.info("Input File Processing Start");
-			URL resource = this.getClass().getClassLoader().getResource(Constant.INPUT_FILE);
-			if (resource == null) {
-			      throw new IllegalArgumentException("File not found!");
-			  } 
-			final File xlsxFile = new File(resource.toURI());
-			
-			List<FlightPassenger> passengers = WorkbookUtil.convertToListOfObject(xlsxFile);
-			
-			logger.info("Input File Processing complete!");
-			
-			return passengers;
-			
-		} catch (URISyntaxException e) {
-			throw new InvalidDataException(e.getLocalizedMessage());
-		}
+		logger.info("Input File Processing Start");
+
+		final File xlsxFile = new File(Constant.INPUT_FILE);
+		
+		List<FlightPassenger> passengers = WorkbookUtil.convertToListOfObject(xlsxFile);
+		
+		logger.info("Input File Processing complete!");
+		
+		return passengers;
 	}
 
 	@Override
@@ -69,9 +57,6 @@ public class FlightOffersService implements OffersService {
 				successfulPassengers.add(new SuccessfulPassenger(passenger, FareClassUtil.getOfferByFareClass(passenger.getFareClass())));
 			}
 			catch(Exception e) {
-				if(passenger.getEmail().length()<2) {
-					System.out.println(passenger);
-				}
 				errorPassengers.add(new ErrorPassenger(passenger, e.getLocalizedMessage()));
 			}
 		}

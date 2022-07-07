@@ -12,24 +12,26 @@ public class Validator {
 	public static Boolean isValidEmail(String email) {
 		
 		Pattern pattern = Pattern.compile(Regex.EMAIL_REGEX);
-        if (email == null)
-            return false;
-        return pattern.matcher(email).matches();
+        return isValidString(email) && pattern.matcher(email).matches();
 	}
 	
 	public static Boolean isValidMobileNumber(String mobileNumber) {
 		
 		Pattern pattern = Pattern.compile(Regex.MOBILE_REGEX);    
 		Matcher match = pattern.matcher(mobileNumber);    
-		return match.find() && match.group().equals(mobileNumber); 
+		return isValidString(mobileNumber) && match.find() && match.group().equals(mobileNumber); 
 	}
 	
 	public static Boolean isValidPNR(String pnr) {
-		return pnr !=null && pnr.length()==6 && pnr.matches(Regex.ALPHANUMERIC_REGEX);
+		return isValidString(pnr) && pnr.length()==6 && pnr.matches(Regex.ALPHANUMERIC_REGEX);
 	}
 	
 	public static Boolean isValidCabin(String cabin) {
-		return Arrays.stream(FlightCabin.values()).anyMatch((e) -> e.getLabel().equals(cabin));
+		return isValidString(cabin) && Arrays.stream(FlightCabin.values()).anyMatch((e) -> e.getLabel().equals(cabin));
+	}
+	
+	public static Boolean isValidString(String str) {
+		return (str !=null && !str.isEmpty());
 	}
 	
 }

@@ -21,9 +21,9 @@ public interface Constant {
 	/**
 	 * Input Output sheet File Name
 	 */
-	String INPUT_FILE = "sahaj_demo_data.xlsx";
-	String SUCCESSFUL_OUTPUT_FILE = "src/main/resources/successful-records";
-	String ERROR_OUTPUT_FILE = "src/main/resources/error-records";
+	String INPUT_FILE = "files/sahaj_demo_data.xlsx";
+	String SUCCESSFUL_OUTPUT_FILE = "files/successful-records";
+	String ERROR_OUTPUT_FILE = "files/error-records";
 	String OUTPUT_FILE_EXT = ".xlsx";
 	
 	/**
