@@ -48,8 +48,8 @@ public class WorkbookUtil {
 	    nextRow.createCell(1).setCellValue(passenger.getLastName());
 	    nextRow.createCell(2).setCellValue(passenger.getPnr());
 	    nextRow.createCell(3).setCellValue(passenger.getEmail());
-	    nextRow.createCell(4).setCellValue(DateUtil.getDateFormat(passenger.getTravelDate(), DateFormat.YYYY_MM_DD));
-	    nextRow.createCell(5).setCellValue(DateUtil.getDateFormat(passenger.getTicketingDate(),DateFormat.YYYY_MM_DD));
+	    nextRow.createCell(4).setCellValue(DateUtil.getDateFormat(passenger.getTravelDate(), DateFormat.yyyy_MM_dd));
+	    nextRow.createCell(5).setCellValue(DateUtil.getDateFormat(passenger.getTicketingDate(),DateFormat.yyyy_MM_dd));
 	    nextRow.createCell(6).setCellValue(passenger.getMobileNumber());
 	    nextRow.createCell(7).setCellValue(passenger.getPax());
 	    nextRow.createCell(8).setCellValue(passenger.getFareClass());

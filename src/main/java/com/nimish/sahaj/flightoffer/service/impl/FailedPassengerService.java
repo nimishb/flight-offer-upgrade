@@ -2,6 +2,7 @@ package main.java.com.nimish.sahaj.flightoffer.service.impl;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.poi.ss.usermodel.Row;
@@ -12,8 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import main.java.com.nimish.sahaj.flightoffer.constant.Constant;
+import main.java.com.nimish.sahaj.flightoffer.constant.DateFormat;
 import main.java.com.nimish.sahaj.flightoffer.model.ErrorPassenger;
 import main.java.com.nimish.sahaj.flightoffer.service.ConversionService;
+import main.java.com.nimish.sahaj.flightoffer.util.DateUtil;
 import main.java.com.nimish.sahaj.flightoffer.util.WorkbookUtil;
 
 public class FailedPassengerService implements ConversionService<ErrorPassenger>{
@@ -45,7 +48,7 @@ public class FailedPassengerService implements ConversionService<ErrorPassenger>
 		}
 		
 		try {
-			FileOutputStream fos = new FileOutputStream(Constant.ERROR_OUTPUT_FILE);
+			FileOutputStream fos = new FileOutputStream(Constant.ERROR_OUTPUT_FILE+Constant.UNDERSCORE+DateUtil.getDateFormat(new Date(), DateFormat.yyyy_MM_dd_T_HH_mm_ssZ)+Constant.OUTPUT_FILE_EXT);
 			workbook.write(fos);
 
 			workbook.close();

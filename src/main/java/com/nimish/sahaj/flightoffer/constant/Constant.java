@@ -22,13 +22,15 @@ public interface Constant {
 	 * Input Output sheet File Name
 	 */
 	String INPUT_FILE = "sahaj_demo_data.xlsx";
-	String SUCCESSFUL_OUTPUT_FILE = "src/main/resources/successful-records.xlsx";
-	String ERROR_OUTPUT_FILE = "src/main/resources/error-records.xlsx";
+	String SUCCESSFUL_OUTPUT_FILE = "src/main/resources/successful-records";
+	String ERROR_OUTPUT_FILE = "src/main/resources/error-records";
+	String OUTPUT_FILE_EXT = ".xlsx";
 	
 	/**
 	 * Output sheet title
 	 */
 	String SHEET_TITLE_SUCCESS = "Successful Records";
 	String SHEET_TITLE_FAILED = "Error Records";
+	String UNDERSCORE = "_";
 
 }

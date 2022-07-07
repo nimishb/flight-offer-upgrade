@@ -69,6 +69,9 @@ public class FlightOffersService implements OffersService {
 				successfulPassengers.add(new SuccessfulPassenger(passenger, FareClassUtil.getOfferByFareClass(passenger.getFareClass())));
 			}
 			catch(Exception e) {
+				if(passenger.getEmail().length()<2) {
+					System.out.println(passenger);
+				}
 				errorPassengers.add(new ErrorPassenger(passenger, e.getLocalizedMessage()));
 			}
 		}

@@ -89,5 +89,13 @@ public class FlightPassenger extends User {
 		this.ticketingDate = ticketingDate;
 		this.bookedCabin = bookedCabin;
 	}
+
+	@Override
+	public String toString() {
+		return "FlightPassenger [pnr=" + pnr + ", fareClass=" + fareClass + ", travelDate=" + travelDate + ", pax="
+				+ pax + ", ticketingDate=" + ticketingDate + ", bookedCabin=" + bookedCabin + ", getFirstName()="
+				+ getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()=" + getEmail()
+				+ ", getMobileNumber()=" + getMobileNumber() + "]";
+	}
 	
 }

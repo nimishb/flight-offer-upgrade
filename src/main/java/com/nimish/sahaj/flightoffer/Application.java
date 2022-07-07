@@ -16,7 +16,7 @@ public class Application {
 		
 			OffersService offerService = new FlightOffersService();
 		
-			offerService.processRecordsFromFile();
+			offerService.processRecords();
 			logger.info("Processing Successful");
 		}
 		catch(Exception e) {
